@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [todos, setTodos] = useState([]);
-
+  
   const addTodo = (text) => {
     setTodos([...todos, { id: Date.now(), text, completed: false }]);
   };

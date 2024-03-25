@@ -1,0 +1,9 @@
+/* TodoList.css */
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.todo-list > li {
+  margin-bottom: 8px;
+}

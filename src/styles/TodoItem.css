@@ -1,0 +1,57 @@
+/* TodoItem.css */
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.toggle {
+  margin-right: 8px;
+}
+
+.item-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.delete-btn,
+.edit-btn {
+  margin-left: 8px;
+  padding: 4px 8px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+}
+
+.delete-btn {
+  background-color: #dc3545;
+}
+
+.de .edit-form {
+  margin-top: 4px;
+}
+
+.edit-input {
+  margin-right: 8px;
+  padding: 4px;
+  width: 200px;
+}
+
+.save-btn,
+.cancel-btn {
+  padding: 4px 8px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.cancel-btn {
+  margin-left: 8px;
+  background-color: #6c757d;
+}

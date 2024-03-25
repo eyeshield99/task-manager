@@ -1,11 +1,12 @@
 // TodoItem.jsx
 import React, { useState } from 'react';
+import '../styles/TodoItem.css'; // Import CSS file for styling
 
 function TodoItem({ todo, deleteTodo, toggleTodo }) {
   const [isEditing, setIsEditing] = useState(false);
   const [updatedText, setUpdatedText] = useState(todo.text);
 
-  const handleDoubleClick = () => {
+  const handleEditClick = () => {
     setIsEditing(true);
   };
 
@@ -13,13 +14,9 @@ function TodoItem({ todo, deleteTodo, toggleTodo }) {
     setUpdatedText(event.target.value);
   };
 
-  const handleBlur = () => {
+  const handleCancelClick = () => {
     setIsEditing(false);
-    if (!updatedText.trim()) {
-      setUpdatedText(todo.text);
-    } else {
-      todo.text = updatedText;
-    }
+    setUpdatedText(todo.text);
   };
 
   const handleSubmit = (event) => {
@@ -33,16 +30,19 @@ function TodoItem({ todo, deleteTodo, toggleTodo }) {
   };
 
   return (
-    <li style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+    <li className="todo-item" style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
       {!isEditing ? (
-        <div onDoubleClick={handleDoubleClick}>
-          <input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
+        <div>
+          <input className="toggle" type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
           <span>{todo.text}</span>
-          <button onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <button className="delete-btn" onClick={() => deleteTodo(todo.id)}>Delete</button>
+          <button className="edit-btn" onClick={handleEditClick}>Edit</button>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input type="text" value={updatedText} onChange={handleChange} onBlur={handleBlur} autoFocus />
+        <form onSubmit={handleSubmit} className="edit-form">
+          <input className="edit-input" type="text" value={updatedText} onChange={handleChange} autoFocus />
+          <button className="save-btn" type="submit">Save</button>
+          <button className="cancel-btn" type="button" onClick={handleCancelClick}>Cancel</button>
         </form>
       )}
     </li>
